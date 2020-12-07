@@ -64,6 +64,7 @@ class Connector:
         self.arguments = args
         self.css_select = css_select
         self.data = []
+        self.loop = asyncio.get_event_loop()
 
     async def __http_request__async(self, url: str, session: aiohttp.ClientSession, user_agent: str):
         """ Sends asynchronous http request to URL address and scrapes the webpage. """
@@ -97,7 +98,6 @@ class Connector:
     def run_connector(self):
         """ Starts the asynchronous loop and returns the scraped data. """
 
-        loop = asyncio.get_event_loop()
         loop.run_until_complete(self.__async_scraper())
 
         return self.data

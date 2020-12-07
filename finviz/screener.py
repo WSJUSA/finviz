@@ -360,6 +360,9 @@ class Screener(object):
 
         return self.data
 
+    def get_data(self):
+        return self.data
+
     def __check_rows(self):
         """
         Checks if the user input for row number is correct.
